@@ -47,10 +47,10 @@ See spec/css_handler_spec.rb
 
 * Usage
 To found same entry in 2 css files
-$ csshandler --same filepath1 filepath2
+ $ csshandler --same filepath1 filepath2
 
 To found override entry only in 2 css files
-$ csshandler --override filepath1 filepath2
+ $ csshandler --override filepath1 filepath2
 
 * Example
 
