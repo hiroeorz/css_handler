@@ -49,7 +49,7 @@ if !option_flg or
 end
 
 filenames = ARGV[0, 2]
-handlers = filenames.collect{ |f| CssHandler.new(f) }
+handlers = filenames.collect{ |f| CssHandler::Handler.new(f) }
 
 case exec_type
 when :same

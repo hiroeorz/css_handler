@@ -63,18 +63,18 @@ EOF
   end
 
   before :each do
-    @handler_1 = CssHandler.new(@css_file_path_1)
-    @handler_2 = CssHandler.new(@css_file_path_2)
+    @handler_1 = CssHandler::Handler.new(@css_file_path_1)
+    @handler_2 = CssHandler::Handler.new(@css_file_path_2)
   end
 
   it "should create instance with filepath" do
-    @handler_1.class.should == CssHandler
-    @handler_2.class.should == CssHandler
+    @handler_1.class.should == CssHandler::Handler
+    @handler_2.class.should == CssHandler::Handler
   end
 
   it "should call method using element name" do
     obj = @handler_1.objects[".iframe-body-black"]
-    obj.class.should == CssElement
+    obj.class.should == CssHandler::Element
     obj.overflow.should == "hidden"
     obj.font_family.should == ["Arial", "Verdana", "sans-serif"]
     obj.font_size.should == "15px"
