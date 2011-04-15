@@ -45,14 +45,14 @@ type: $ csshandler --help
    --same          find same entries and output to stdout
    --override      find override entries and output to stdout
 
-* Usage
+==Usage
 To found same entry in 2 css files
  $ csshandler --same filepath1 filepath2
 
 To found override entry only in 2 css files
  $ csshandler --override filepath1 filepath2
 
-* Example
+==Example
 
 /path/to/css1
  .contents {
