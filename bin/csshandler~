@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+require "getoptlong"
+require "css_handler"
+
+optparser = GetoptLong.new
+optparser.set_options(['--same', GetoptLong::REQUIRED_ARGUMENT])
+
+optparser.each_option do |name, arg|
+  case name
+
+  end
+end

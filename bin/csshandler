@@ -1,0 +1,51 @@
+#!/usr/bin/env ruby
+
+require "getoptlong"
+require "css_handler"
+
+optparser = GetoptLong.new
+optparser.ordering = GetoptLong::PERMUTE
+optparser.set_options(['--same', GetoptLong::NO_ARGUMENT],
+                      ['--override', GetoptLong::NO_ARGUMENT],)
+
+
+exec_type = :same
+option_flg = false
+
+optparser.each_option do |name, arg|
+  case name
+    when "--same"
+    exec_type = :same
+    option_flg = true
+    
+    when "--override"
+    exec_type = :override
+    option_flg = true
+  
+  end
+end
+
+usage =<<EOF
+Usage: csshandler type file1 file2
+
+type
+  --same          find same entries and output to stdout
+  --override      find override entries and output to stdout
+
+EOF
+
+if !option_flg or 
+    ([:same, :override].include?(exec_type) and ARGV.length < 2)
+  puts usage
+  exit(1)
+end
+
+filenames = ARGV[0, 2]
+handlers = filenames.collect{ |f| CssHandler.new(f) }
+
+case exec_type
+when :same
+  print handlers[0].css_same_entry_string(handlers[1])
+when :override
+  print handlers[0].override_entry_string(handlers[1])
+end

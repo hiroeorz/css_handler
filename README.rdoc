@@ -1,6 +1,12 @@
 = css_handler
 
-Description goes here.
+* github.com/hiroeorz/rspec-w3c-matchers/tree/master
+* hiroeorz@gmail.com
+
+css_handler is CSS handling library.
+* Same entry 2 CSS files find and output to stdout.
+* Override entry 2 CSS files shurink and output to stdout.
+
 
 == Contributing to css_handler
  
@@ -17,3 +23,9 @@ Description goes here.
 Copyright (c) 2011 HIROE Shin. See LICENSE.txt for
 further details.
 
+==INSTALL
+download from git project page
+
+cd css_handler
+ $ rake
+ 
