@@ -15,8 +15,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "css_handler"
   gem.homepage = "http://github.com/hiroeorz/css_handler"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{}
+  gem.description = %Q{}
   gem.email = "hiroe.orz@gmail.com"
   gem.authors = ["HIROE Shin"]
   # Include your dependencies below. Runtime dependencies are required when using your gem,

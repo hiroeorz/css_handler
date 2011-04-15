@@ -27,5 +27,6 @@ further details.
 download from git project page
 
 cd css_handler
- $ rake
+ $ rake spec
+ $ sudo rake install
  
