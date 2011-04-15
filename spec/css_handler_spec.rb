@@ -55,6 +55,7 @@ body {
 
 .overrided-class {
   background-color: #000;
+  display: block;
 }
 EOF
     make_css(@css_1, @css_file_path_1)
@@ -117,6 +118,7 @@ EOF
     css_body.should ==
 ".overrided-class {
   background-color: #000;
+  display: block;
 }
 
 .iframe-body {

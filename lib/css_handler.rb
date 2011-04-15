@@ -1,8 +1,16 @@
 # -*- coding: utf-8 -*-
 require "css_parser"
+STDOUT.sync = true
 
 class CssElement
   attr_accessor :css_selectors, :css_name
+  REMOVE_METHODS = [:display] #remove to private method liset
+
+  REMOVE_METHODS.each do |method_name|
+    eval "private; def #{method_name}; super; end"
+  end
+
+  public
 
   def initialize(css_name)
     @css_name = css_name
@@ -22,7 +30,7 @@ class CssElement
   end
 
   #
-  # @problem: hoge-tara hoge_tara -> same name hoge_tara
+  # @todo: hoge-tara hoge_tara -> same name hoge_tara
   #
   def add_selector(name, real_name = nil)
     name_sym = name.kind_of?(String) ? name.gsub(/\-/, "_").to_sym : name
@@ -35,7 +43,7 @@ class CssElement
   end
 
   def set_attributes(name, value)
-    method_name = name.kind_of?(String) ? name.gsub(/\-/, "_") : name
+    method_name = name.kind_of?(String) ? name.gsub(/\-/, "_").to_sym : name
     
     if value.kind_of?(String)
       if value =~ /,/
@@ -46,6 +54,10 @@ class CssElement
       end
     else
       return_value = value
+    end
+
+    if respond_to?(method_name) or respond_to?("#{method_name}=")
+      raise ArgumentError.new("already defined method: #{method_name}")
     end
 
     self.instance_eval "
@@ -75,12 +87,12 @@ class CssElement
   def override_entries(other)
     entries = same_entries(other)
     return other if entries.empty?
-
     obj = self.class.new(css_name)
 
     other.css_selectors.each do |name|
       next unless self.respond_to?(name)
       next if other.send(name) == send(name)
+
       obj.set_attributes(other.css_real_selectors[name], 
                          other.send(name))
     end
@@ -180,14 +192,6 @@ class CssHandler
     override_entries
   end
 
-  def output_override_entries(other)
-    print override_entry_string(other)
-  end
-
-  def output_same_entries(other)
-    print css_same_entry_string(other)
-  end
-
   def override_entry_string(other)
     entries = override_entries(other)
     str = ""
@@ -228,9 +232,3 @@ class CssHandler
   end
 
 end
-
-#handler1 = CssHandler.new("master.css")
-#handler2 = CssHandler.new("ipad_master.css")
-
-#handler1.output_same_entries(handler2)
-#handler1.output_override_entries(handler2)

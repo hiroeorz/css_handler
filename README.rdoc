@@ -28,6 +28,7 @@ download from git project page
 * https://github.com/hiroeorz/css_handler
 
 cd css_handler
+ $ bundle install
  $ rake spec
  $ sudo rake install
  
