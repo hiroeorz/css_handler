@@ -31,3 +31,17 @@ cd css_handler
  $ rake spec
  $ sudo rake install
  
+==Run
+
+* Run As Library
+** See spec/css_handler_spec.rb
+
+* Run As Unix Command
+* type: $ csshandler --help
+
+ Usage: csshandler type file1 file2
+ 
+ type
+   --same          find same entries and output to stdout
+   --override      find override entries and output to stdout
+
