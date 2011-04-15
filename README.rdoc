@@ -58,24 +58,24 @@ To found override entry only in 2 css files
 /path/to/css1
  .contents {
    background-color: #fff;
-   color: #000
+   color: #000;
  }
  
  .sidebar {
    display: block;
-   float: left
+   float: left;
  }
  
 /path/to/css2
 
  .contents {
    background-color: #fff;
-   color: #111
+   color: #111;
  }
  
  .sidebar {
    display: block;
-   float: left
+   float: left;
  }
  
  #in-window {
@@ -89,13 +89,13 @@ $ csshandler --same /path/to/css1 /path/to/css2
  
  .sidebar {
    display: block;
-   float: left
+   float: left;
  }
 
 $ csshandler --override /path/to/css1 /path/to/css2
 
  .contents {
-   color: #111
+   color: #111;
  }
  
  #in-window {
