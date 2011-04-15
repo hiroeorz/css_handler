@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
+
 require "css_parser"
-STDOUT.sync = true
 
 class CssElement
   attr_accessor :css_selectors, :css_name
