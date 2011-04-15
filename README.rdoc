@@ -34,7 +34,7 @@ cd css_handler
 ==Run
 
 * Run As Library
-** See spec/css_handler_spec.rb
+See spec/css_handler_spec.rb
 
 * Run As Unix Command
 * type: $ csshandler --help
@@ -45,3 +45,58 @@ cd css_handler
    --same          find same entries and output to stdout
    --override      find override entries and output to stdout
 
+* Usage
+To found same entry in 2 css files
+$ csshandler --same filepath1 filepath2
+
+To found override entry only in 2 css files
+$ csshandler --override filepath1 filepath2
+
+* Example
+
+/path/to/css1
+ .contents {
+   background-color: #fff;
+   color: #000
+ }
+ 
+ .sidebar {
+   display: block;
+   float: left
+ }
+ 
+/path/to/css2
+
+ .contents {
+   background-color: #fff;
+   color: #111
+ }
+ 
+ .sidebar {
+   display: block;
+   float: left
+ }
+ 
+ #in-window {
+  font-weight: normal;
+ }
+
+$ csshandler --same /path/to/css1 /path/to/css2
+ .contents {
+   background-color: #fff;
+ }
+ 
+ .sidebar {
+   display: block;
+   float: left
+ }
+
+$ csshandler --override /path/to/css1 /path/to/css2
+
+ .contents {
+   color: #111
+ }
+ 
+ #in-window {
+  font-weight: normal;
+ }
