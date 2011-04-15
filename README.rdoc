@@ -37,7 +37,7 @@ cd css_handler
 See spec/css_handler_spec.rb
 
 * Run As Unix Command
-* type: $ csshandler --help
+type: $ csshandler --help
 
  Usage: csshandler type file1 file2
  
